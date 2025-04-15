@@ -1,71 +1,43 @@
-# 🛠️ JSON Server with Docker & AWS ECS Setup
+# 🕒 SimpleTimeService
 
-This project demonstrates a simple Node.js server that returns the server's IP and the current time in JSON format. The server is containerized using Docker and can be deployed to AWS ECS using Fargate.
+**SimpleTimeService** is a lightweight web service that displays the current server time. This project is structured with clear separation of concerns for application logic and infrastructure management using Terraform.
 
 ---
 
 ## 📁 Project Structure
 
 ```
-app
-├── Dockerfile
-├── README.md
-├── db.json
-├── package.json
-└── time.js
+SimpleTimeService
+├── app/ # Node.js (or your app) source code 
+├── terraform/ # Infrastructure as Code using Terraform 
+└── README.md 
 ```
 
 ---
 
+## 🚀 Quick Start
 
-## 🚀 Features
-
-- `/` endpoint: Returns HTTP 200 OK (used for ECS health check).
-- `/time` endpoint: Returns current server time and IP in JSON format.
-- Dockerized for easy deployment.
-- ECS-ready setup.
-
-## ⚙️ How to Use
-
-### 1. Clone the Repo
+### 🔧 Run the App Locally
 
 ```bash
-
-git clone https://github.com/s3csys/app.git
 cd app
+docker build -t s3csys/app:latest .
+docker run -d --name simpletime -p 3000:3000 s3csys/app:latest:latest
 ```
 
-### Build the Docker Image
+### ☁️ Deploy with Terraform
 
 ```bash
-docker build --pull --rm -f 'Dockerfile' -t 's3csys/app:latest' 'app'
+
+cd terraform
+terraform init
+terraform apply -auto-approve
 ```
 
-### Run the Container
+🧰 Tech Stack
 
-```bash
-docker run -d --name app -p 3000:3000 s3csys/app:latest
-```
+- Docker – Containerization
+- Terraform – Infrastructure as Code
+- AWS – (for launching the ecs)
+- Node.js (json server)
 
-### Check the conatiner 
-
-```bash
-docker ps -a
-```
-
-Now, open your browser or use `curl`:
-
-```bash
-curl http://$IP$:3000/time
-```
-
-Output:
-
-```bash
-{
-  "timestamp": "<current date and time>",
-  "ip": "<the IP address of the visitor>"
-}
-```
-
-![docker](docker.png)
