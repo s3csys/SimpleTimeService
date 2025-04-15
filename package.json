@@ -1,0 +1,11 @@
+{
+  "name": "json-time-server",
+  "version": "1.0.0",
+  "main": "time.js",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  },
+  "scripts": {
+    "start": "json-server --host 0.0.0.0 --watch db.json --middlewares ./time.js --port 3000"
+  }
+}
