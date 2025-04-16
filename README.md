@@ -22,7 +22,7 @@ SimpleTimeService
 ```bash
 cd app
 docker build -t s3csys/app:latest .
-docker run -d --name simpletime -p 3000:3000 s3csys/app:latest:latest
+docker run -d --name simpletime -p 3000:3000 s3csys/app:latest
 ```
 
 ### ☁️ Deploy with Terraform
