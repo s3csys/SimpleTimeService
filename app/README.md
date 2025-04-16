@@ -7,10 +7,11 @@ This project demonstrates a simple Node.js server that returns the server's IP a
 ## 📁 Project Structure
 
 ```
-app
+SimpleTimeService/app
 ├── Dockerfile
 ├── README.md
 ├── db.json
+├── docker.png
 ├── package.json
 └── time.js
 ```
