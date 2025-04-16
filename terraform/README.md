@@ -34,9 +34,8 @@ git --version
 
 ```bash
 aws s3api create-bucket \
-  --bucket terraform-state-bucket \
-  --region us-east-1 \
-  --create-bucket-configuration LocationConstraint=us-east-1
+  --bucket terraform-state-secsys-bucket \
+  --region us-east-1
 ```
 
 - DynamoDB Table (for Locking Optional):
@@ -54,10 +53,14 @@ aws dynamodb create-table \
 ## 📁 Project Structure
 
 ```
-Terraform
-├── main.tf 	       # Main Terraform configuration
+SimpleTimeService/terraform
+├── LICENSE
+├── README.md
+├── backend.tf
+├── cloud.png
+├── main.tf 	         # Main Terraform configuration
 ├── terraform.tfvars   # Values for input variables
-└── variables.tf 	   # Input variables for the project
+└── variables.tf 	     # Input variables for the project
 ```
 
 ## Setup Instructions
